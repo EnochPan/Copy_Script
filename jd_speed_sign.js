@@ -69,6 +69,7 @@ const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
       }
       await jdGlobal()
       await $.wait(2*1000)
+      await $.wait(5000)
     }
   }
 })()
@@ -90,7 +91,9 @@ async function jdGlobal() {
     await signInit()
     await sign()
     await invite()
+    await $.wait(5000)
     await invite2()
+    await $.wait(5000)
     $.score = 0
     $.total = 0
     await taskList()
@@ -191,6 +194,7 @@ async function taskList() {
                     await doTask(task.taskType)
                     await $.wait(1000)
                     await $.wait(1000)
+                    await $.wait(5000)
                   } else {
                     $.canStartNewItem = true
                     while ($.canStartNewItem) {
@@ -261,6 +265,7 @@ async function queryJoy() {
                   await rewardTask(task.id, task.activeType)
                   await $.wait(500)
                   await $.wait(500)
+                  await $.wait(5000)
                 }
             }
           }
@@ -360,6 +365,7 @@ async function startItem(activeId, activeType) {
                   videoBrowsing = activeType === 1 ? 5 : 10
                 console.log(`【${taskCompletionProgress + 1}/${taskCompletionLimit}】浏览商品任务记录成功，等待${videoBrowsing}秒`)
                 await $.wait(videoBrowsing * 1000)
+                
                 await endItem(data.data.uuid, activeType, activeId, activeType === 3 ? videoBrowsing : "")
               } else {
                 console.log(`${$.taskName}任务已达上限`)
@@ -500,6 +506,7 @@ function wheelsHome() {
                   await wheelsLottery()
                   await $.wait(500)
                   await $.wait(500)
+                  await $.wait(5000)
                 }
               }
             }

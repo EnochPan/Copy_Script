@@ -94,7 +94,7 @@ async function jdCrazyJoy() {
   $.canBuy = true
   await getJoyList()
   await $.wait(1000)
-  await $.wait(1000)
+  await $.wait(5000)
   if ($.joyIds && $.joyIds.length > 0) {
     $.log('当前JOY分布情况')
     $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
@@ -105,6 +105,7 @@ async function jdCrazyJoy() {
   await getJoyShop()
   await $.wait(1000)
   await $.wait(1000)
+  await $.wait(5000)
 
   // 如果格子全部被占有且没有可以合并的JOY，只能回收低级的JOY (且最低等级的JOY小于30级)
   if(checkHasFullOccupied() && !checkCanMerge() && finMinJoyLevel() < 30) {
@@ -114,17 +115,21 @@ async function jdCrazyJoy() {
     await sellJoy(minJoyId, boxId);
     await $.wait(1000)
     await $.wait(1000)
+    await $.wait(5000)
     await getJoyList();
     await $.wait(1000)
     await $.wait(1000)
+    await $.wait(5000)
   }
 
   await hourBenefit()
   await $.wait(1000)
   await $.wait(1000)
+  await $.wait(5000)
   await getCoin()
   await $.wait(1000)
   await $.wait(1000)
+  await $.wait(5000)
 
   for (let i = 0; i < $.joyIds.length; ++i) {
     if (!$.canBuy) {
@@ -135,9 +140,11 @@ async function jdCrazyJoy() {
       await buyJoy($.buyJoyLevel)
       await $.wait(1000)
       await $.wait(1000)
+      await $.wait(5000)
       await getJoyList()
       await $.wait(1000)
       await $.wait(1000)
+      await $.wait(5000)
       await getCoin();
     }
   }
@@ -159,9 +166,11 @@ async function jdCrazyJoy() {
       await mergeJoy(vo[0], vo[1])
       await $.wait(3000)
       await $.wait(3000)
+      await $.wait(5000)
       await getJoyList()
       await $.wait(1000)
       await $.wait(1000)
+      await $.wait(5000)
       if ($.joyIds && $.joyIds.length > 0) {
         $.log('合并后的JOY分布情况')
         $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
@@ -176,9 +185,11 @@ async function jdCrazyJoy() {
         await mergeJoy(vo[0], vo[1])
         await $.wait(3000)
         await $.wait(3000)
+        await $.wait(5000)
         await getJoyList()
         await $.wait(1000)
         await $.wait(1000)
+        await $.wait(5000)
         if ($.joyIds && $.joyIds.length > 0) {
           $.log('合并后的JOY分布情况')
           $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
@@ -189,6 +200,7 @@ async function jdCrazyJoy() {
     }
   }
   await getUserBean()
+  await $.wait(5000)
   await $.wait(5000)
   await $.wait(5000)
   console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
@@ -254,6 +266,7 @@ function buyJoyLogic() {
       while (zeroNum--) {
         await $.wait(1000)
         await $.wait(1000)
+        await $.wait(5000)
         if (zeroNum >= 2 && joyPrices && joyPrices.length) {
           // buyLevel = getBuyid2b(joyPrices, joyPrices.length)     // 具体参数可根据个人情况进行调整
           buyLevel = getBuyid2b(joyPrices)     // 具体参数可根据个人情况进行调整
@@ -405,6 +418,7 @@ function buyJoy(joyId) {
               await openBox(data.data.eventInfo.eventType, data.data.eventInfo.eventRecordId)
               await $.wait(1000)
               await $.wait(1000)
+              await $.wait(5000)
               $.log('金币不足')
               $.canBuy = false
               return
@@ -440,6 +454,7 @@ function sellJoy(joyId, boxId) {
               await openBox(data.data.eventInfo.eventType, data.data.eventInfo.eventRecordId)
               await $.wait(1000)
               await $.wait(1000)
+              await $.wait(5000)
               $.canBuy = false
               return
             }
@@ -530,6 +545,7 @@ function getCoin() {
               await openBox('LUCKY_BOX_DROP',data.data.luckyBoxRecordId)
               await $.wait(1000)
               await $.wait(1000)
+              await $.wait(5000)
             }
             if (data.data) {
               $.log(`此次在线收益：获得 ${data.data['coins']} 金币`)
@@ -590,6 +606,7 @@ function openBox(eventType = 'LUCKY_BOX_DROP', boxId) {
               if (data.data.advertViewTimes > 0) {
                 await $.wait(32000)
                 await $.wait(32000)
+                await $.wait(5000)
                 await rewardBox(eventType, boxId);
               }
             }

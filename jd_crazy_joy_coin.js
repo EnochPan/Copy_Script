@@ -94,6 +94,7 @@ async function jdCrazyJoy() {
   $.canBuy = true
   await getJoyList()
   await $.wait(1000)
+  await $.wait(1000)
   if ($.joyIds && $.joyIds.length > 0) {
     $.log('当前JOY分布情况')
     $.log(`\n${$.joyIds[0]} ${$.joyIds[1]} ${$.joyIds[2]} ${$.joyIds[3]}`)
@@ -103,6 +104,7 @@ async function jdCrazyJoy() {
 
   await getJoyShop()
   await $.wait(1000)
+  await $.wait(1000)
 
   // 如果格子全部被占有且没有可以合并的JOY，只能回收低级的JOY (且最低等级的JOY小于30级)
   if(checkHasFullOccupied() && !checkCanMerge() && finMinJoyLevel() < 30) {
@@ -111,13 +113,17 @@ async function jdCrazyJoy() {
     console.log(`格子全部被占有且没有可以合并的JOY，回收${boxId + 1}号位等级为${minJoyId}的JOY`)
     await sellJoy(minJoyId, boxId);
     await $.wait(1000)
+    await $.wait(1000)
     await getJoyList();
+    await $.wait(1000)
     await $.wait(1000)
   }
 
   await hourBenefit()
   await $.wait(1000)
+  await $.wait(1000)
   await getCoin()
+  await $.wait(1000)
   await $.wait(1000)
 
   for (let i = 0; i < $.joyIds.length; ++i) {
@@ -128,7 +134,9 @@ async function jdCrazyJoy() {
     if ($.joyIds[i] === 0) {
       await buyJoy($.buyJoyLevel)
       await $.wait(1000)
+      await $.wait(1000)
       await getJoyList()
+      await $.wait(1000)
       await $.wait(1000)
       await getCoin();
     }
@@ -150,7 +158,9 @@ async function jdCrazyJoy() {
       $.log(`开始合并两只${idx}级joy\n`)
       await mergeJoy(vo[0], vo[1])
       await $.wait(3000)
+      await $.wait(3000)
       await getJoyList()
+      await $.wait(1000)
       await $.wait(1000)
       if ($.joyIds && $.joyIds.length > 0) {
         $.log('合并后的JOY分布情况')
@@ -165,7 +175,9 @@ async function jdCrazyJoy() {
         $.log(`开始合并两只${idx}级joy\n`)
         await mergeJoy(vo[0], vo[1])
         await $.wait(3000)
+        await $.wait(3000)
         await getJoyList()
+        await $.wait(1000)
         await $.wait(1000)
         if ($.joyIds && $.joyIds.length > 0) {
           $.log('合并后的JOY分布情况')
@@ -177,6 +189,7 @@ async function jdCrazyJoy() {
     }
   }
   await getUserBean()
+  await $.wait(5000)
   await $.wait(5000)
   console.log(`当前信息：${$.bean} 京豆，${$.coin} 金币`)
 }
@@ -239,6 +252,7 @@ function buyJoyLogic() {
       console.log('joyPrices', JSON.stringify($.joyPrices))
       if (zeroNum > 2) joyPrices = $.joyPrices;
       while (zeroNum--) {
+        await $.wait(1000)
         await $.wait(1000)
         if (zeroNum >= 2 && joyPrices && joyPrices.length) {
           // buyLevel = getBuyid2b(joyPrices, joyPrices.length)     // 具体参数可根据个人情况进行调整
@@ -390,6 +404,7 @@ function buyJoy(joyId) {
             if (data.data.eventInfo) {
               await openBox(data.data.eventInfo.eventType, data.data.eventInfo.eventRecordId)
               await $.wait(1000)
+              await $.wait(1000)
               $.log('金币不足')
               $.canBuy = false
               return
@@ -423,6 +438,7 @@ function sellJoy(joyId, boxId) {
           if (data.success) {
             if (data.data.eventInfo) {
               await openBox(data.data.eventInfo.eventType, data.data.eventInfo.eventRecordId)
+              await $.wait(1000)
               await $.wait(1000)
               $.canBuy = false
               return
@@ -513,6 +529,7 @@ function getCoin() {
             if (data.data && data.data.luckyBoxRecordId) {
               await openBox('LUCKY_BOX_DROP',data.data.luckyBoxRecordId)
               await $.wait(1000)
+              await $.wait(1000)
             }
             if (data.data) {
               $.log(`此次在线收益：获得 ${data.data['coins']} 金币`)
@@ -571,6 +588,7 @@ function openBox(eventType = 'LUCKY_BOX_DROP', boxId) {
             if (data['success']) {
               $.log(`点击幸运盒子成功，剩余观看视频次数：${data.data.advertViewTimes}, ${data.data.advertViewTimes > 0 ? '等待32秒' : '跳出'}`)
               if (data.data.advertViewTimes > 0) {
+                await $.wait(32000)
                 await $.wait(32000)
                 await rewardBox(eventType, boxId);
               }

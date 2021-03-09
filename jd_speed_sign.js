@@ -190,6 +190,7 @@ async function taskList() {
                   if (task.taskType >= 1000) {
                     await doTask(task.taskType)
                     await $.wait(1000)
+                    await $.wait(1000)
                   } else {
                     $.canStartNewItem = true
                     while ($.canStartNewItem) {
@@ -258,6 +259,7 @@ async function queryJoy() {
               if (data.data.taskBubbles)
                 for (let task of data.data.taskBubbles) {
                   await rewardTask(task.id, task.activeType)
+                  await $.wait(500)
                   await $.wait(500)
                 }
             }
@@ -496,6 +498,7 @@ function wheelsHome() {
                 console.log(`【幸运大转盘】剩余抽奖机会：${data.data.lotteryChances}`)
                 while(data.data.lotteryChances--) {
                   await wheelsLottery()
+                  await $.wait(500)
                   await $.wait(500)
                 }
               }

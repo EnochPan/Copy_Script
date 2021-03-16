@@ -673,7 +673,7 @@ function taskGetUrl(function_id, body) {
       'Host': 'api.m.jd.com',
       'Accept': '*/*',
       'Connection': 'keep-alive',
-      'user-agent': 'jdltapp;android;3.2.0;11;5656235343933623-9333830393631663;network/wifi;model/Redmi K30 Pro;addressid/2367786385;aid/ee2549c2938096a6;oaid/ff8a84e38b9a9b2a;osVer/30;appBuild/1456;psn/4SaUFL1JpznCIOFe2vlCiXoODsytZfBJ|94;psq/3;adk/;ads/;pap/JA2020_3112531|3.2.0|ANDROID 11;osv/11;pv/84.3;jdv/0|www.yqhd8.com|t_2008917954_|tuiguang|2b7322d37a624a23877e5c11215f92d6|1615222746901|1615222752;ref/HomeFragment;partner/xiaomi;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 11; Redmi K30 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36'
+      'user-agent': 'jdltapp;android;3.2.0;11;5656235343933623-9333830393631663;network/wifi;model/Redmi K30 Pro;addressid/2367786385;aid/ee2549c2938096a6;oaid/ff8a84e38b9a9b2a;osVer/30;appBuild/1456;psn/4SaUFL1JpznCIOFe2vlCiXoODsytZfBJ|94;psq/3;adk/;ads/;pap/JA2020_3112531|3.2.0|ANDROID 11;osv/11;pv/84.3;jdv/0|www.yqhd8.com|t_2008917954_|tuiguang|2b7322d37a624a23877e5c11215f92d6|1615222746901|1615222752;ref/HomeFragment;partner/xiaomi;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 11; Redmi K30 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36',
       'Accept-Language': 'zh-Hans-CN;q=1,en-CN;q=0.9',
       'Accept-Encoding': 'gzip, deflate, br',
       'Content-Type': "application/x-www-form-urlencoded",
@@ -696,7 +696,7 @@ function TotalBean() {
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": 'jdltapp;android;3.2.0;11;5656235343933623-9333830393631663;network/wifi;model/Redmi K30 Pro;addressid/2367786385;aid/ee2549c2938096a6;oaid/ff8a84e38b9a9b2a;osVer/30;appBuild/1456;psn/4SaUFL1JpznCIOFe2vlCiXoODsytZfBJ|94;psq/3;adk/;ads/;pap/JA2020_3112531|3.2.0|ANDROID 11;osv/11;pv/84.3;jdv/0|www.yqhd8.com|t_2008917954_|tuiguang|2b7322d37a624a23877e5c11215f92d6|1615222746901|1615222752;ref/HomeFragment;partner/xiaomi;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 11; Redmi K30 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36'
+        "User-Agent": 'jdltapp;android;3.2.0;11;5656235343933623-9333830393631663;network/wifi;model/Redmi K30 Pro;addressid/2367786385;aid/ee2549c2938096a6;oaid/ff8a84e38b9a9b2a;osVer/30;appBuild/1456;psn/4SaUFL1JpznCIOFe2vlCiXoODsytZfBJ|94;psq/3;adk/;ads/;pap/JA2020_3112531|3.2.0|ANDROID 11;osv/11;pv/84.3;jdv/0|www.yqhd8.com|t_2008917954_|tuiguang|2b7322d37a624a23877e5c11215f92d6|1615222746901|1615222752;ref/HomeFragment;partner/xiaomi;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 11; Redmi K30 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36',
       }
     }
     $.post(options, (err, resp, data) => {

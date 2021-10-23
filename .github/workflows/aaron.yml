@@ -44,6 +44,6 @@ jobs:
         if: env.PAT
         with:
           source_repo: "https://github.com/Aaron-lv/sync.git"
-          source_branch: "main"
-          destination_branch: "faker"
+          source_branch: "jd_scripts"
+          destination_branch: "aaron"
           github_token: ${{ secrets.PAT }}
